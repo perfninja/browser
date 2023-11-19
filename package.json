@@ -1,0 +1,38 @@
+{
+  "name": "perfninja",
+  "version": "1.0.0",
+  "description": "Perf Ninja - Front-End monitoring tool browser client",
+  "main": "index.js",
+  "module": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "rollup": "rollup --config rollup.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/perfninja/browser.git"
+  },
+  "author": "egorshar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/perfninja/browser/issues"
+  },
+  "homepage": "https://perfninja.com",
+  "devDependencies": {
+    "@rollup/plugin-replace": "^5.0.5",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@types/node": "^20.9.1",
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "@typescript-eslint/parser": "^6.11.0",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.53.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "^3.1.0",
+    "rollup": "^4.4.1",
+    "typescript": "^5.2.2"
+  }
+}

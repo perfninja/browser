@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["@typescript-eslint", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "globals": {
+    "window": true
+  },
+  "rules": {
+    "import/no-unresolved": 0,
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "import/extensions": 0,
+    "import/prefer-default-export": 0,
+    "no-shadow": "off",
+    "no-param-reassign": [2, { "props": false }],
+    "@typescript-eslint/no-shadow": ["error"],
+    "vars-on-top": 0
+  }
+}

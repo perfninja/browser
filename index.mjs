@@ -196,7 +196,9 @@ var measure = function (chartId, options) {
         attachEvents();
     }
     catch (e) {
-        console.warn(e);
+        if (console && console.warn) {
+            console.warn(e);
+        }
     }
 };
 

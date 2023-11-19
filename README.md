@@ -48,7 +48,7 @@ measure(
 Embed following code before any of your site scripts:
 
 ```javascript
-!function(){"use strict";!function(n,e){var r=function(){n[e].q.push(arguments[0],Array.prototype.slice.call(arguments,1))},t=["init","mark","measure"];n[e]={q:[]};for(var i=0;i<2;i++)n[e][t[i]]=r.bind({},t[i]);var a=n.document.createElement("script");a.src="https://cdn.jsdelivr.net/gh/perfninja/browser@1.0/index.min.js",n.document.head&&n.document.head.appendChild(a)}(window,"perfninja")}();
+!function(){"use strict";!function(n,e){var r=function(){n[e].q.push(arguments[0],Array.prototype.slice.call(arguments,1))},t=["init","mark","measure"];n[e]={q:[]};for(var i=0;i<2;i++)n[e][t[i]]=r.bind({},t[i]);var a=n.document.createElement("script");a.src="https://cdn.jsdelivr.net/gh/perfninja/browser@1.0.0/index.min.js",n.document.head&&n.document.head.appendChild(a)}(window,"perfninja")}();
 ```
  
 Call methods in your site from `perfninja` global variable:

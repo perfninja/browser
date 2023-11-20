@@ -41,7 +41,6 @@ export default [
     output: [
       {
         file: 'loader.min.js',
-        format: 'iife',
         plugins: [terser()],
       },
     ],

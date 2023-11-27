@@ -1,4 +1,9 @@
-import { PerfNinjaConfig } from './types';
+import { GlobalPerfNinjaInstance, PerfNinjaConfig } from './types';
+
+interface GlobalWindow {
+  perfninja: GlobalPerfNinjaInstance;
+  performance: Performance;
+}
 
 const CACHE_LOCAL_STORAGE_KEY = 'perfninja-release-id';
 
@@ -25,3 +30,7 @@ export const cacheReleaseId = (value?: PerfNinjaConfig['releaseId']) => {
 
   return startupReleaseId;
 };
+
+export const globalWindow = (
+  typeof window === 'undefined' ? {} : window
+) as GlobalWindow;

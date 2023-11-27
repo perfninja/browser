@@ -5,8 +5,9 @@ import {
 } from './types';
 
 import * as perfNinja from './index';
+import { globalWindow } from './utils';
 
-const globalPerfNinja: GlobalPerfNinjaInstance = window.perfninja || {};
+const globalPerfNinja: GlobalPerfNinjaInstance = globalWindow.perfninja || {};
 const initialQueue: GlobalPerfNinjaInstanceQueueItem[] =
   globalPerfNinja.q || [];
 

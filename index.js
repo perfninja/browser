@@ -55,7 +55,29 @@ var setConfig = function (params) {
 };
 var getConfig = function () { return (__assign({}, config)); };
 
-var globalPerfNinja = window.perfninja || {};
+var CACHE_LOCAL_STORAGE_KEY = 'perfninja-release-id';
+var accessLocalStorage = function (value) {
+    try {
+        if (value !== undefined) {
+            localStorage.setItem(CACHE_LOCAL_STORAGE_KEY, value);
+            return true;
+        }
+        return localStorage.getItem(CACHE_LOCAL_STORAGE_KEY);
+    }
+    catch (e) {
+        return false;
+    }
+};
+var startupReleaseId = accessLocalStorage();
+var cacheReleaseId = function (value) {
+    if (value) {
+        accessLocalStorage(value);
+    }
+    return startupReleaseId;
+};
+var globalWindow = (typeof window === 'undefined' ? {} : window);
+
+var globalPerfNinja = globalWindow.perfninja || {};
 var initialQueue = globalPerfNinja.q || [];
 /**
  * Handle initial queue if
@@ -101,28 +123,7 @@ var attachEvents = function () {
     isEventsAttached = true;
 };
 
-var CACHE_LOCAL_STORAGE_KEY = 'perfninja-release-id';
-var accessLocalStorage = function (value) {
-    try {
-        if (value !== undefined) {
-            localStorage.setItem(CACHE_LOCAL_STORAGE_KEY, value);
-            return true;
-        }
-        return localStorage.getItem(CACHE_LOCAL_STORAGE_KEY);
-    }
-    catch (e) {
-        return false;
-    }
-};
-var startupReleaseId = accessLocalStorage();
-var cacheReleaseId = function (value) {
-    if (value) {
-        accessLocalStorage(value);
-    }
-    return startupReleaseId;
-};
-
-var performance = window.performance;
+var performance = globalWindow.performance;
 var PERFNINJA_MEASURE_KEY = 'perfninja_measure';
 var getStartMarkName = function (markName) {
     return "perfninja_".concat(markName);

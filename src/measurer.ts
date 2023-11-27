@@ -1,11 +1,11 @@
 import { PerfNinjaChartId, PerfNinjaMeasureOptions } from './types';
 
 import { attachEvents } from './events';
-import { cacheReleaseId } from './utils';
+import { cacheReleaseId, globalWindow } from './utils';
 import { getConfig } from './config';
 import { queue } from './queue';
 
-const { performance } = window;
+const { performance } = globalWindow;
 const PERFNINJA_MEASURE_KEY = 'perfninja_measure';
 
 const getStartMarkName = (markName: PerfNinjaMeasureOptions['markName']) =>

@@ -1,6 +1,6 @@
 {
   "name": "perfninja",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Perf Ninja - Front-End monitoring tool browser client",
   "main": "index.js",
   "module": "index.mjs",

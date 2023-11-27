@@ -9,6 +9,7 @@
     }
   },
   "source": "./src/index.ts",
+  "types": "./types/index.d.ts",
   "main": "index.js",
   "module": "index.mjs",
   "type": "module",

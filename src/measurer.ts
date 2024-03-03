@@ -97,7 +97,7 @@ export const measure = (
     performance.clearMeasures(PERFNINJA_MEASURE_KEY);
     performance.clearMarks(getStartMarkName(markName));
 
-    queue.push({ c: chartId, d: measured.duration });
+    queue.push({ c: chartId, d: measured.duration, e: options.experiment });
     attachEvents();
   } catch (e) {
     if (console && console.warn) {

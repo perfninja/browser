@@ -195,7 +195,7 @@ var measure = function (chartId, options) {
         var measured = performance.measure(PERFNINJA_MEASURE_KEY, startPoint);
         performance.clearMeasures(PERFNINJA_MEASURE_KEY);
         performance.clearMarks(getStartMarkName(markName));
-        queue.push({ c: chartId, d: measured.duration });
+        queue.push({ c: chartId, d: measured.duration, e: options.experiment });
         attachEvents();
     }
     catch (e) {

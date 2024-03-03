@@ -26,11 +26,22 @@ export type PerfNinjaMeasureOptions = {
    * measure method was called
    */
   markName?: string;
+
+  /**
+   * Experiment name
+   *
+   * If you have made subsequent edits, pass
+   * the unique identifier of these edits so
+   * that the chart will display a ReferenceLine
+   * from when they started working
+   */
+  experiment?: string;
 };
 
 export type PerfNinjaLogQueueItem = {
   c: PerfNinjaChartId;
   d: PerformanceMeasure['duration'];
+  e?: string;
 };
 
 export type GlobalPerfNinjaInstance = Partial<PerfNinjaInstance> & {

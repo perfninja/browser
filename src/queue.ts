@@ -20,7 +20,7 @@ const initialQueue: GlobalPerfNinjaInstanceQueueItem[] =
 initialQueue.forEach(([methodName, args]) => {
   switch (methodName) {
     case 'init':
-      perfNinja.init(...args);
+      perfNinja.init(args[0]);
       break;
     case 'mark':
       perfNinja.mark(args[0]);

@@ -1,10 +1,3 @@
-var perfNinja = /*#__PURE__*/Object.freeze({
-    __proto__: null,
-    get init () { return init; },
-    get mark () { return mark; },
-    get measure () { return measure; }
-});
-
 /******************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -40,6 +33,7 @@ typeof SuppressedError === "function" ? SuppressedError : function (error, suppr
 
 var config = {
     releaseId: '',
+    endpoint: '',
 };
 var setConfig = function (params) {
     var sanitizedParams = Object.keys(params).reduce(function (result, key) {
@@ -87,7 +81,7 @@ initialQueue.forEach(function (_a) {
     var methodName = _a[0], args = _a[1];
     switch (methodName) {
         case 'init':
-            init.apply(perfNinja, args);
+            init(args[0]);
             break;
         case 'mark':
             mark(args[0]);
@@ -101,10 +95,10 @@ var queue = [];
 
 var isEventsAttached = false;
 var sendLog = function () {
-    var url = "https://log.perfninja.com/charts-queue";
-    {
+    var endpoint = getConfig().endpoint;
+    if (endpoint) {
         var req = new XMLHttpRequest();
-        req.open('POST', url, true);
+        req.open('POST', endpoint, true);
         req.setRequestHeader('Content-Type', 'application/json');
         req.send(JSON.stringify(queue));
         queue.splice(0, queue.length);
@@ -204,7 +198,9 @@ var measure = function (chartId, options) {
 };
 
 var init = function (params) {
-    if (params === void 0) { params = {}; }
+    if (!params || !params.endpoint) {
+        throw new Error("Library couldn't work without the endpoint param");
+    }
     setConfig(params);
     cacheReleaseId(params.releaseId);
 };

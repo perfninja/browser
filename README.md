@@ -14,7 +14,12 @@ yarn add perfninja
 If you want to measure you own custom metric:
 
 ```javascript
-import { mark, measure } from 'perfninja';
+import { init, mark, measure } from 'perfninja';
+
+// Endpoint where data will be sent
+init({
+  endpoint: 'https://perfninja.com/log',
+});
 
 mark('pageTransitionStart');
 
@@ -33,7 +38,11 @@ You can also measure from NavigationTiming API marks.
 Simply call `measure` method without marking before. Just pass one of the [NavigationTiming](https://developer.mozilla.org/en-US/docs/Web/API/Performance_API/Navigation_timing) keys to the markName prop:
 
 ```javascript
-import { mark, measure } from 'perfninja';
+import { init, mark, measure } from 'perfninja';
+
+init({
+  endpoint: 'https://perfninja.com/log',
+});
 
 measure(
   '3699c7ca-b7bf-434f-bfdf-ec32c6ee3386', // Perf Ninja Chart Id
@@ -54,6 +63,10 @@ Embed following code before any of your site scripts:
 Call methods in your site from `perfninja` global variable:
 
 ```javascript
+window.perfninja.init({
+  endpoint: 'https://perfninja.com/log',
+});
+
 window.perfninja.measure(
   '3699c7ca-b7bf-434f-bfdf-ec32c6ee3386', // Perf Ninja Chart Id
   {

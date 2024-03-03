@@ -2,6 +2,7 @@ import { PerfNinjaConfig } from './types';
 
 const config: PerfNinjaConfig = {
   releaseId: '',
+  endpoint: '',
 };
 
 export const setConfig = (params: Partial<PerfNinjaConfig>) => {

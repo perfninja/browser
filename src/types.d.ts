@@ -4,6 +4,11 @@ export type PerfNinjaChartId = string;
 
 export type PerfNinjaConfig = {
   /**
+   * Endpoint where data will be sent
+   */
+  endpoint: string;
+
+  /**
    * Unique identifier to separate
    * releases, helps to recognise
    * if load was with cache or not

@@ -1,13 +1,14 @@
+import { getConfig } from './config';
 import { queue } from './queue';
 
 let isEventsAttached = false;
 
 export const sendLog = () => {
-  const url = process.env.LOG_ENDPOINT_URL;
+  const { endpoint } = getConfig();
 
-  if (url) {
+  if (endpoint) {
     const req = new XMLHttpRequest();
-    req.open('POST', url, true);
+    req.open('POST', endpoint, true);
     req.setRequestHeader('Content-Type', 'application/json');
     req.send(JSON.stringify(queue));
 
